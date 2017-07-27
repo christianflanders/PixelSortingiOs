@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main Screen Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PixelSorting" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainScreenController" customModule="PixelSorting" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -22,15 +22,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fp9-2T-mK5">
-                                <rect key="frame" x="5" y="67" width="414" height="672"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fp9-2T-mK5">
+                                <rect key="frame" x="0.0" y="67" width="414" height="519"/>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ckk-C2-jAW">
-                                <rect key="frame" x="0.0" y="585" width="435" height="151"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ckk-C2-jAW">
+                                <rect key="frame" x="0.0" y="585" width="414" height="151"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="151" id="ykj-qJ-l3d"/>
+                                    <constraint firstAttribute="height" constant="151" id="E03-09-LOD"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="32" minimumInteritemSpacing="32" id="cMQ-aL-kyW">
                                     <size key="itemSize" width="131" height="115"/>
@@ -39,7 +38,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <imageView key="backgroundView" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Main Box" id="q3p-KV-iIh">
-                                    <rect key="frame" x="0.0" y="0.0" width="435" height="151"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="151"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <cells>
@@ -73,25 +72,51 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="VAe-mw-IJP"/>
                                 </connections>
                             </collectionView>
-                            <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="egS-Uw-Osf">
-                                <rect key="frame" x="189" y="350" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
+                            <view alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K1s-Iu-Vwd">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PfW-NN-OKl">
+                                        <rect key="frame" x="300" y="19" width="106" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Save To Library"/>
+                                        <connections>
+                                            <action selector="SaveToLibrary:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YiY-CW-Rps"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98p-PF-Hf9">
+                                        <rect key="frame" x="8" y="19" width="124" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Select New Image"/>
+                                        <connections>
+                                            <segue destination="XH6-6G-LtE" kind="presentation" id="xvw-nB-IFh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="e4e-ja-RE6"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ckk-C2-jAW" secondAttribute="trailing" constant="5" id="7v2-Cy-AAD"/>
-                            <constraint firstItem="ckk-C2-jAW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZAf-Na-ZlW"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ckk-C2-jAW" secondAttribute="bottom" id="cQ4-I0-SeK"/>
+                            <constraint firstItem="K1s-Iu-Vwd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="34I-9k-tGL"/>
+                            <constraint firstAttribute="trailing" secondItem="ckk-C2-jAW" secondAttribute="trailing" id="823-rF-qIx"/>
+                            <constraint firstItem="ckk-C2-jAW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MeB-GE-yfJ"/>
+                            <constraint firstItem="ckk-C2-jAW" firstAttribute="leading" secondItem="fp9-2T-mK5" secondAttribute="leading" id="NSr-VB-BTc"/>
+                            <constraint firstItem="fp9-2T-mK5" firstAttribute="leading" secondItem="K1s-Iu-Vwd" secondAttribute="leading" id="R2H-Wc-9SY"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fp9-2T-mK5" secondAttribute="bottom" constant="150" id="Tli-ck-foe"/>
+                            <constraint firstAttribute="trailing" secondItem="K1s-Iu-Vwd" secondAttribute="trailing" id="ZhU-oT-Koo"/>
+                            <constraint firstItem="ckk-C2-jAW" firstAttribute="trailing" secondItem="fp9-2T-mK5" secondAttribute="trailing" id="gc6-kH-cVc"/>
+                            <constraint firstItem="fp9-2T-mK5" firstAttribute="trailing" secondItem="K1s-Iu-Vwd" secondAttribute="trailing" id="lSL-yw-fFD"/>
+                            <constraint firstItem="K1s-Iu-Vwd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qhc-Rd-2NV"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ckk-C2-jAW" secondAttribute="bottom" id="t3V-LJ-j88"/>
+                            <constraint firstItem="fp9-2T-mK5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="47" id="tFy-ph-AkC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Qmg-wW-6Gq">
                         <barButtonItem key="leftBarButtonItem" title="◁Select New" id="bdC-Fq-FJy">
                             <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <segue destination="XH6-6G-LtE" kind="presentation" id="wSa-xg-L9J"/>
-                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save to Library" id="dBb-Fi-6aN">
                             <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -101,7 +126,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="ActivityIndicator" destination="egS-Uw-Osf" id="UX6-Qj-HRJ"/>
                         <outlet property="ImageView" destination="fp9-2T-mK5" id="Ejg-Qu-vBN"/>
                         <outlet property="progressView" destination="8bC-Xf-vdC" id="wUS-rZ-tiB"/>
                     </connections>
@@ -137,6 +161,9 @@
                                 <rect key="frame" x="97" y="439" width="220" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Use Camera" backgroundImage="Import Button"/>
+                                <connections>
+                                    <action selector="takePicture:" destination="XH6-6G-LtE" eventType="touchUpInside" id="OYI-el-VRN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkp-cO-L32">
                                 <rect key="frame" x="97" y="270" width="220" height="50"/>
@@ -155,29 +182,13 @@
                             <constraint firstItem="iNf-6Y-Lyh" firstAttribute="leading" secondItem="gWm-1b-SBa" secondAttribute="leadingMargin" constant="26" id="dMt-7f-m5w"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="ImageFromLibrarySelected" id="RIy-jL-Pas"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pwb-Ar-tcE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-675.36231884057975" y="135.32608695652175"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="KOY-y9-p05">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dlG-ic-Nsf" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" alpha="0.59999999999999998" contentMode="scaleToFill" id="Z5I-X6-kHU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="NxC-Gu-Ysn"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hiQ-Cl-MFQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="136.23188405797103" y="138.58695652173915"/>
         </scene>
     </scenes>
     <resources>

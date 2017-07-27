@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource{
+class MainScreenController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource{
+    
+    var image: UIImage?
     var pixelData = [PixelData]()
     var width = CGFloat()
     var height = CGFloat()
@@ -16,6 +18,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     let effectsArray = ["Effect 1", "Effect 2", "Effect 3", "Effect 4", "Effect 5"]
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageLoaded()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -33,36 +36,39 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     @IBOutlet weak var ProgressView: UIProgressView!
     
-    @IBAction func SelectFromLibrary(_ sender: UIBarButtonItem) {
-        let image = UIImagePickerController()
-        image.delegate = self
-        image.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        image.allowsEditing = false
-        self.present(image, animated: true)
-        {
-            //adfadsasd
-        }
+//    @IBAction func SelectFromLibrary(_ sender: UIBarButtonItem) {
+//        let image = UIImagePickerController()
+//        image.delegate = self
+//        image.sourceType = UIImagePickerControllerSourceType.photoLibrary
+//        image.allowsEditing = false
+//        self.present(image, animated: true)
+//        {
+//            //adfadsasd
+//        }
+//        
+//    }
+    
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+
+//        
+//        self.dismiss(animated: true, completion: nil)
+//    }
+    func imageLoaded() {
+                if let imageLoaded = image {
+                    ImageView.image = imageLoaded
+                    pixelData = imageInitialProcessing(imageLoaded)
+                    width = imageLoaded.size.width
+                    height = imageLoaded.size.height
+                    print(width)
+                    print(height)
+                    ImageView.image = imageLoaded
         
+                } else {
+                    print("error!")
+                }
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            ImageView.image = image
-            pixelData = imageInitialProcessing(image)
-            width = image.size.width
-            height = image.size.height
-            print(width)
-            print(height)
-            ImageView.image = image
-            
-        } else {
-            print("error!")
-        }
-        
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func SaveToLibrary(_ sender: UIBarButtonItem) {
+    @IBAction func SaveToLibrary(_ sender: UIButton) {
         let imageData = UIImagePNGRepresentation(ImageView.image!)
         let compressedImage = UIImage(data: imageData!)
         UIImageWriteToSavedPhotosAlbum(compressedImage!, nil, nil, nil)
@@ -95,10 +101,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     if label == "Effect 1" {
         //SLOW AF
         activateActivity()
-        let sortedTest1 = pixelData.sorted{ $0.g < $1.r}
+        let sortedTest1 = pixelData.sorted{ $0.a < $1.r}
         let sortedImage = imageFromBitmap(pixels: sortedTest1, width: Int(width), height: Int(height))
         ImageView.image = sortedImage
         stopActivity()
+        //g < r
     }
     else if label == "Effect 2" {
         activateActivity()

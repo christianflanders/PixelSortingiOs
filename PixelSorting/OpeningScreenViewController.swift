@@ -9,10 +9,15 @@
 import UIKit
 
 class OpeningScreenViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    let picker = UIImagePickerController()
+    let camera = UIImagePickerController()
+    var chosenImage = UIImage()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("fahsdfasdfasd")
+        picker.delegate = self
+        camera.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -23,15 +28,39 @@ class OpeningScreenViewController: UIViewController, UIImagePickerControllerDele
     
 
     @IBAction func SelectFromLibrary(_ sender: UIButton) {
-        let image = UIImagePickerController()
-        image.delegate = self
-        image.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        image.allowsEditing = false
-        self.present(image, animated: true)
-        {
-            //adfadsasd
+        picker.allowsEditing = false
+        picker.sourceType = .photoLibrary
+
+        self.present(picker, animated: true, completion: nil)
+
+    }
+    @IBAction func takePicture(_ sender: UIButton){
+        camera.allowsEditing = false
+        camera.sourceType = .camera
+        self.present(camera, animated: true, completion: nil)
+
+    }
+    
+
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+
+        print("bye")
+        dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "ImageFromLibrarySelected", sender: self)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print("dismissed")
+        dismiss(animated: true, completion: nil)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ImageFromLibrarySelected" {
+            let destination = segue.destination as! MainScreenController
+            destination.image = chosenImage as! UIImage
+            
         }
-        
     }
     
 

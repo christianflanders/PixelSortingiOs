@@ -230,7 +230,7 @@ public func sortByAlphaChanges(_ inputData: [PixelData]) -> [PixelData]{
     }
     return finishedSorting
 }
-
+//crashes
 public func sortByRow(_ toBeSorted: [PixelData], width: CGFloat ) -> [PixelData]{
     var fullySorted = toBeSorted
     let widthOfInput = Int(width)
@@ -285,4 +285,394 @@ public func copyAndDivide(_ toBeSorted: [PixelData]) -> [PixelData]{
     return sorting
 }
 
+public func insertPixels(_ toBeSorted: [PixelData]) -> [PixelData]{
+    var sorting = toBeSorted
+    var counter = 0
+    for i in sorting{
+        if counter % 50 == 0{
+            var newPixel =  i
+            let r = newPixel.r
+            let g = newPixel.g
+            newPixel.r = g
+            newPixel.g = r
+
+
+            sorting.insert(newPixel, at: counter + 50)
+            counter += 1
+        } else {
+            counter += 1
+        }
+    }
+    //4 is cool but reaalllly slow. 50 is cool and relativly quick.
+    
+    
+    return sorting
+}
+
+public func rgbaSort(_ input: [PixelData]) -> [PixelData]{
+    var r = [UInt8]()
+    var g = [UInt8]()
+    var b = [UInt8]()
+    var a = [UInt8]()
+    var sorted = input
+    for pixel in input{
+        r.append(pixel.r)
+        g.append(pixel.g)
+        b.append(pixel.b)
+        a.append(pixel.a)
+    }
+    var counter = 0
+    var u0 = UInt8(0)
+    for pixel in sorted{
+        if counter % 11 == 0 && counter + 11 < sorted.count {
+            sorted[counter].r = r[counter]
+            sorted[counter].g = u0
+            sorted[counter].b = u0
+            sorted[counter + 1].r = r[counter + 1]
+            sorted[counter + 1].g = u0
+            sorted[counter + 1].b = u0
+            sorted[counter + 2].r = r[counter + 2]
+            sorted[counter + 2].g = u0
+            sorted[counter + 2].b = u0
+            sorted[counter + 3].r = r[counter + 3]
+            sorted[counter + 3].g = u0
+            sorted[counter + 3].b = u0
+            sorted[counter + 4].g = g[counter + 4]
+            sorted[counter + 4].r = u0
+            sorted[counter + 4].b = u0
+            sorted[counter + 5].g = g[counter + 5]
+            sorted[counter + 5].r = u0
+            sorted[counter + 5].b = u0
+            sorted[counter + 6].g = g[counter + 6]
+            sorted[counter + 6].r = u0
+            sorted[counter + 6].b = u0
+            sorted[counter + 7].g = g[counter + 7]
+            sorted[counter + 7].r = u0
+            sorted[counter + 7].b = u0
+            sorted[counter + 8].b = b[counter + 8]
+            sorted[counter + 8].r = u0
+            sorted[counter + 8].g = u0
+            sorted[counter + 9].b = b[counter + 9]
+            sorted[counter + 9].r = u0
+            sorted[counter + 9].g = u0
+            sorted[counter + 10].b = b[counter + 10]
+            sorted[counter + 10].r = u0
+            sorted[counter + 10].g = u0
+            sorted[counter + 11].b = b[counter + 11]
+            sorted[counter + 11].r = u0
+            sorted[counter + 11].g = u0
+            counter += 1
+        } else {
+            counter += 1
+        }
+    }
+    return sorted
+}
+public func rgbaSortMaybe(_ input: [PixelData]) -> [PixelData]{
+    var r = [UInt8]()
+    var g = [UInt8]()
+    var b = [UInt8]()
+    var a = [UInt8]()
+    var sorted = input
+    for pixel in input{
+        r.append(pixel.b)
+        g.append(pixel.g)
+        b.append(pixel.r)
+        a.append(pixel.a)
+    }
+    var counter = 0
+    var u0 = UInt8(0)
+    for pixel in sorted{
+        var index = sorted[counter]
+        index.a = UInt8(255)
+        if counter % 5 == 0 && counter + 11 < sorted.count {
+            sorted[counter].r = r[counter]
+            sorted[counter].g = u0
+            sorted[counter].b = u0
+            sorted[counter + 1].r = r[counter + 1]
+            sorted[counter + 1].g = u0
+            sorted[counter + 1].b = u0
+            sorted[counter + 2].r = r[counter + 2]
+            sorted[counter + 2].g = u0
+            sorted[counter + 2].b = u0
+            sorted[counter + 3].r = r[counter + 3]
+            sorted[counter + 3].g = u0
+            sorted[counter + 3].b = u0
+            sorted[counter + 4].g = g[counter + 4]
+            sorted[counter + 4].r = u0
+            sorted[counter + 4].b = u0
+            sorted[counter + 5].g = g[counter + 5]
+            sorted[counter + 5].r = u0
+            sorted[counter + 5].b = u0
+            sorted[counter + 6].g = g[counter + 6]
+            sorted[counter + 6].r = u0
+            sorted[counter + 6].b = u0
+            sorted[counter + 7].g = g[counter + 7]
+            sorted[counter + 7].r = u0
+            sorted[counter + 7].b = u0
+            sorted[counter + 8].b = b[counter + 8]
+            sorted[counter + 8].r = u0
+            sorted[counter + 8].g = u0
+            sorted[counter + 9].b = b[counter + 9]
+            sorted[counter + 9].r = u0
+            sorted[counter + 9].g = u0
+            sorted[counter + 10].b = b[counter + 10]
+            sorted[counter + 10].r = u0
+            sorted[counter + 10].g = u0
+            sorted[counter + 11].b = b[counter + 11]
+            sorted[counter + 11].r = u0
+            sorted[counter + 11].g = u0
+            counter += 1
+        } else {
+            counter += 1
+        }
+    }
+    return sorted
+}
+public func coolLines(_ input: [PixelData]) -> [PixelData]{
+    var r = [UInt8]()
+    var g = [UInt8]()
+    var b = [UInt8]()
+    var a = [UInt8]()
+    var sorted = input
+    for pixel in input{
+        r.append(pixel.r)
+        g.append(pixel.g)
+        b.append(pixel.b)
+        a.append(pixel.a)
+    }
+    var counter = 0
+    var u0 = UInt8(0)
+    for pixel in sorted{
+        var index = sorted[counter]
+        index.a = UInt8(255)
+        if counter % 5 == 0 && counter + 11 < sorted.count {
+            sorted[counter].r = r[counter]
+            sorted[counter].g = u0
+            sorted[counter].b = u0
+            sorted[counter + 1].r = r[counter + 1]
+            sorted[counter + 1].g = u0
+            sorted[counter + 1].b = u0
+            sorted[counter + 2].r = r[counter + 2]
+            sorted[counter + 2].g = u0
+            sorted[counter + 2].b = u0
+            sorted[counter + 3].r = r[counter + 3]
+            sorted[counter + 3].g = u0
+            sorted[counter + 3].b = u0
+            sorted[counter + 4].g = g[counter + 4]
+            sorted[counter + 4].r = u0
+            sorted[counter + 4].b = u0
+            sorted[counter + 5].g = g[counter + 5]
+            sorted[counter + 5].r = u0
+            sorted[counter + 5].b = u0
+            sorted[counter + 6].g = g[counter + 6]
+            sorted[counter + 6].r = u0
+            sorted[counter + 6].b = u0
+            sorted[counter + 7].g = g[counter + 7]
+            sorted[counter + 7].r = u0
+            sorted[counter + 7].b = u0
+            sorted[counter + 8].b = b[counter + 8]
+            sorted[counter + 8].r = u0
+            sorted[counter + 8].g = u0
+            sorted[counter + 9].b = b[counter + 9]
+            sorted[counter + 9].r = u0
+            sorted[counter + 9].g = u0
+            sorted[counter + 10].b = b[counter + 10]
+            sorted[counter + 10].r = u0
+            sorted[counter + 10].g = u0
+            sorted[counter + 11].b = b[counter + 11]
+            sorted[counter + 11].r = u0
+            sorted[counter + 11].g = u0
+            counter += 1
+        } else {
+            counter += 1
+        }
+    }
+    return sorted
+}
+public func blue(_ input: [PixelData]) -> [PixelData]{
+    var r = [UInt8]()
+    var g = [UInt8]()
+    var b = [UInt8]()
+    var a = [UInt8]()
+    var sorted = input
+    for pixel in input{
+        r.append(pixel.r)
+        g.append(pixel.g)
+        b.append(pixel.b)
+        a.append(pixel.a)
+    }
+    var counter = 0
+    var u0 = UInt8(0)
+    for pixel in sorted{
+        var index = sorted[counter]
+        index.a = UInt8(255)
+        if counter % 1 == 0 && counter + 11 < sorted.count {
+            sorted[counter].r = r[counter]
+            sorted[counter].g = u0
+            sorted[counter].b = u0
+            sorted[counter + 1].r = r[counter + 1]
+            sorted[counter + 1].g = u0
+            sorted[counter + 1].b = u0
+            sorted[counter + 2].r = r[counter + 2]
+            sorted[counter + 2].g = u0
+            sorted[counter + 2].b = u0
+            sorted[counter + 3].r = r[counter + 3]
+            sorted[counter + 3].g = u0
+            sorted[counter + 3].b = u0
+            sorted[counter + 4].g = g[counter + 4]
+            sorted[counter + 4].r = u0
+            sorted[counter + 4].b = u0
+            sorted[counter + 5].g = g[counter + 5]
+            sorted[counter + 5].r = u0
+            sorted[counter + 5].b = u0
+            sorted[counter + 6].g = g[counter + 6]
+            sorted[counter + 6].r = u0
+            sorted[counter + 6].b = u0
+            sorted[counter + 7].g = g[counter + 7]
+            sorted[counter + 7].r = u0
+            sorted[counter + 7].b = u0
+            sorted[counter + 8].b = b[counter + 8]
+            sorted[counter + 8].r = u0
+            sorted[counter + 8].g = u0
+            sorted[counter + 9].b = b[counter + 9]
+            sorted[counter + 9].r = u0
+            sorted[counter + 9].g = u0
+            sorted[counter + 10].b = b[counter + 10]
+            sorted[counter + 10].r = u0
+            sorted[counter + 10].g = u0
+            sorted[counter + 11].b = b[counter + 11]
+            sorted[counter + 11].r = u0
+            sorted[counter + 11].g = u0
+            counter += 1
+        } else {
+            counter += 1
+        }
+    }
+    return sorted
+}
+
+public func dotsAndShit(_ input: [PixelData]) -> [PixelData]{
+    var r = [UInt8]()
+    var g = [UInt8]()
+    var b = [UInt8]()
+    var a = [UInt8]()
+    var sorted = input
+    for pixel in input{
+        r.append(pixel.r)
+        g.append(pixel.g)
+        b.append(pixel.b)
+        a.append(pixel.a)
+    }
+    var counter = 0
+    var u0 = UInt8(0)
+    for pixel in sorted{
+        var index = sorted[counter]
+        index.a = UInt8(255)
+        if counter % 8 == 0 && counter + 11 < sorted.count {
+            sorted[counter].r = r[counter]
+            sorted[counter].g = u0
+            sorted[counter].b = u0
+            sorted[counter + 1].r = r[counter + 1]
+            sorted[counter + 1].g = u0
+            sorted[counter + 1].b = u0
+            sorted[counter + 2].r = r[counter + 2]
+            sorted[counter + 2].g = u0
+            sorted[counter + 2].b = u0
+            sorted[counter + 3].r = r[counter + 3]
+            sorted[counter + 3].g = u0
+            sorted[counter + 3].b = u0
+            sorted[counter + 4].g = g[counter + 4]
+            sorted[counter + 4].r = u0
+            sorted[counter + 4].b = u0
+            sorted[counter + 5].g = g[counter + 5]
+            sorted[counter + 5].r = u0
+            sorted[counter + 5].b = u0
+            sorted[counter + 6].g = g[counter + 6]
+            sorted[counter + 6].r = u0
+            sorted[counter + 6].b = u0
+            sorted[counter + 7].g = g[counter + 7]
+            sorted[counter + 7].r = u0
+            sorted[counter + 7].b = u0
+            sorted[counter + 8].b = b[counter + 8]
+            sorted[counter + 8].r = u0
+            sorted[counter + 8].g = u0
+            sorted[counter + 9].b = b[counter + 9]
+            sorted[counter + 9].r = u0
+            sorted[counter + 9].g = u0
+            sorted[counter + 10].b = b[counter + 10]
+            sorted[counter + 10].r = u0
+            sorted[counter + 10].g = u0
+            sorted[counter + 11].b = b[counter + 11]
+            sorted[counter + 11].r = u0
+            sorted[counter + 11].g = u0
+            counter += 1
+        } else {
+            counter += 1
+        }
+    }
+    return sorted
+}
+
+public func coolReversedLines(_ input: [PixelData]) -> [PixelData]{
+    var r = [UInt8]()
+    var g = [UInt8]()
+    var b = [UInt8]()
+    var a = [UInt8]()
+    var sorted = input
+    for pixel in input{
+        r.append(pixel.b)
+        g.append(pixel.g)
+        b.append(pixel.r)
+        a.append(pixel.a)
+    }
+    var counter = 0
+    var u0 = UInt8(0)
+    for pixel in sorted{
+        var index = sorted[counter]
+        index.a = UInt8(255)
+        if counter % 5 == 0 && counter + 11 < sorted.count {
+            sorted[counter].r = r[counter]
+            sorted[counter].g = u0
+            sorted[counter].b = u0
+            sorted[counter + 1].r = r[counter + 1]
+            sorted[counter + 1].g = u0
+            sorted[counter + 1].b = u0
+            sorted[counter + 2].r = r[counter + 2]
+            sorted[counter + 2].g = u0
+            sorted[counter + 2].b = u0
+            sorted[counter + 3].r = r[counter + 3]
+            sorted[counter + 3].g = u0
+            sorted[counter + 3].b = u0
+            sorted[counter + 4].g = g[counter + 4]
+            sorted[counter + 4].r = u0
+            sorted[counter + 4].b = u0
+            sorted[counter + 5].g = g[counter + 5]
+            sorted[counter + 5].r = u0
+            sorted[counter + 5].b = u0
+            sorted[counter + 6].g = g[counter + 6]
+            sorted[counter + 6].r = u0
+            sorted[counter + 6].b = u0
+            sorted[counter + 7].g = g[counter + 7]
+            sorted[counter + 7].r = u0
+            sorted[counter + 7].b = u0
+            sorted[counter + 8].b = b[counter + 8]
+            sorted[counter + 8].r = u0
+            sorted[counter + 8].g = u0
+            sorted[counter + 9].b = b[counter + 9]
+            sorted[counter + 9].r = u0
+            sorted[counter + 9].g = u0
+            sorted[counter + 10].b = b[counter + 10]
+            sorted[counter + 10].r = u0
+            sorted[counter + 10].g = u0
+            sorted[counter + 11].b = b[counter + 11]
+            sorted[counter + 11].r = u0
+            sorted[counter + 11].g = u0
+            counter += 1
+        } else {
+            counter += 1
+        }
+    }
+    return sorted
+}
 

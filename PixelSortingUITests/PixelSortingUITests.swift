@@ -28,9 +28,18 @@ class PixelSortingUITests: XCTestCase {
         super.tearDown()
     }
     
+    
+
     func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let app = XCUIApplication()
+        app.buttons["Import From Library"].tap()
+        app.tables.buttons["Moments"].tap()
+        app.collectionViews["PhotosGridView"].cells["Photo, Landscape, 1:19 PM"].tap()
+        
+        let cellsQuery = app.collectionViews.cells
+        cellsQuery.otherElements.containing(.staticText, identifier:"Effect 1").element.tap()
+        cellsQuery.otherElements.containing(.staticText, identifier:"Effect 2").element.tap()
+        cellsQuery.otherElements.containing(.staticText, identifier:"Effect 3").element.tap()        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
 }

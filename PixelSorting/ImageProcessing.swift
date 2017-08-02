@@ -2,159 +2,30 @@ import Foundation
 import UIKit
 import CoreGraphics
 
-extension UIImage {
-   public func pixelData() -> [UInt8]? {
-        let size = self.size
-        let dataSize = size.width * size.height * 4
-        var pixelData = [UInt8](repeating: 0, count: Int(dataSize))
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let context = CGContext(data: &pixelData,
-                                width: Int(size.width),
-                                height: Int(size.height),
-                                bitsPerComponent: 8,
-                                bytesPerRow: 4 * Int(size.width),
-                                space: colorSpace,
-                                bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue)
-        guard let cgImage = self.cgImage else { return nil }
-        context?.draw(cgImage, in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-        
-        return pixelData
-    }
-    
-    
 
-    
-    
-}
+//public func randomSorter() -> UIImage {
+//    let input = imageInitialProcessing(self)
+//    var index = 0
+//    var finishedEverything = input
+//    for i in input{
+//        let random = arc4random_uniform(UInt32((input.count)))
+//        let randomRange = 300
+//        print(randomRange)
+//        if random % 500 == 0 {
+//            if index + randomRange < input.count{
+//                let range = index..<index + randomRange
+//                var sortableRange = input[range]
+//                sortableRange.sort{ $0.g < $1.b}
+//                finishedEverything.replaceSubrange(range, with: sortableRange)
+//            }
+//        }
+//        index += 1
+//    }
+//}
 
-/*class ImageResizing{
-    let maxDimension: Int
-    init(maxDimension:Int) {
-        self.maxDimension = maxDimension
-    }
-    func isSmallEnough( w : Int, h: Int ) -> Bool{
-       return w < maxDimension && h < maxDimension
-    }
-    
-    
-    
-    
-    func shrinkImage(original:UIImage) -> UIImage {
-        
-        var w = Int(original.size.width)
-        var h = Int(original.size.height)
-        if (isSmallEnough(w: w, h: h)){
-            return original
-        }
-        while (isSmallEnough(w: w, h: h)){
-            w = w/2
-            h = h/2
-        }
-        let floatW = CGFloat(w)
-        return resizeImage(image: original, newWidth: floatW)
-       
-    }
-    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
-            
-            let scale = newWidth / image.size.width
-            let newHeight = image.size.height * scale
-            UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
-            image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
-            let newImage = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            return newImage!
-        }
-    
-
-
-}
- */
-
-
-
-
-
-public struct PixelData {
-    public var r: UInt8 = 0
-    public var g: UInt8 = 0
-    public var b: UInt8 = 0
-    public var a: UInt8 = 0
-    
-}
-public func imageInitialProcessing(_ image: UIImage) -> [PixelData] {
-    let width = image.size.width
-    let height = image.size.height
-    let myImageDataArray = image.pixelData()
-    let arrayOfPixelData = convertToArray(myImageDataArray!)
-    return arrayOfPixelData
-
-}
-public func convertToArray(_ input : [UInt8]) -> [PixelData] {
-    var index = 0
-    var arrayOfPixelData = [PixelData]()
-    for i in input{
-        if index % 4 == 0 {
-            var pixel = PixelData()
-            let r = i
-            let g = input[index + 1]
-            let b = input[index + 2]
-            let a = input[index + 3]
-            pixel.r = a
-            pixel.g = r
-            pixel.b = g
-            pixel.a = b
-            arrayOfPixelData.append(pixel)
-            index += 1
-        } else {
-            index += 1
-        }
-        // a r b g
-}
-    return arrayOfPixelData
-
-}
-  public func imageFromBitmap(pixels: [PixelData], width: Int, height: Int) -> UIImage? {
-        assert(width > 0)
-        
-        assert(height > 0)
-        
-        let pixelDataSize = MemoryLayout<PixelData>.size
-        assert(pixelDataSize == 4)
-        
-        //assert(pixels.count == Int(width * height))
-        
-        let data: Data = pixels.withUnsafeBufferPointer {
-            return Data(buffer: $0)
-        }
-        
-        let cfdata = NSData(data: data) as CFData
-        let provider: CGDataProvider! = CGDataProvider(data: cfdata)
-        if provider == nil {
-            print("CGDataProvider is not supposed to be nil")
-            return nil
-        }
-        let cgimage: CGImage! = CGImage(
-            width: width,
-            height: height,
-            bitsPerComponent: 8,
-            bitsPerPixel: 32,
-            bytesPerRow: width * pixelDataSize,
-            space: CGColorSpaceCreateDeviceRGB(),
-            bitmapInfo: CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedFirst.rawValue),
-            provider: provider,
-            decode: nil,
-            shouldInterpolate: true,
-            intent: .defaultIntent
-        )
-        if cgimage == nil {
-            print("CGImage is not supposed to be nil")
-            return nil
-        }
-        return UIImage(cgImage: cgimage)
-}
 
 //works if assert is turned off
-public func someEffect(_ input: [PixelData]) -> [PixelData]{
+ func someEffect(_ input: [PixelData]) -> [PixelData]{
     var returnArray = input
     var counter = 0
     for i in input{
@@ -181,7 +52,17 @@ public func someEffect(_ input: [PixelData]) -> [PixelData]{
     return returnArray
 }
 
+public func arSort(_ input: [PixelData]) -> [PixelData]{
+    var sorted = input
+    sorted.sort { $0.a < $1.r }
+    return sorted
+}
 
+public func gbSort(_ input: [PixelData]) -> [PixelData]{
+    var sorted = input
+    sorted.sort { $0.g < $1.b }
+    return sorted
+}
 
 public func randomSort(_ input: [PixelData]) -> [PixelData]{
     var index = 0
@@ -220,6 +101,60 @@ public func sortByAlphaChanges(_ inputData: [PixelData]) -> [PixelData]{
             if range.endIndex < inputData.count{
                 var sortableRange = inputData[index..<randomRange + index]
                 sortableRange.sort { $0.b < $1.g }
+                print(range)
+                finishedSorting.replaceSubrange(range, with: sortableRange)
+            }
+            
+        }
+        lastAlpha = pixel.a //THIS LINE
+        index += 1
+    }
+    return finishedSorting
+}
+public func sortByRedChanges(_ inputData: [PixelData]) -> [PixelData]{
+    //var sortableRange = [PixelData]()
+    var finishedSorting = inputData
+    var lastAlpha = UInt8(0)
+    let maxDifference = UInt8(100)
+    var index = 0
+    let randomRange = 300
+    for pixel in inputData {
+        let op1 = pixel.r
+        let op2 = lastAlpha
+        let difference = Int(op1) - Int(op2)
+        let range = index..<index + 300
+        
+        if difference > Int(maxDifference) {
+            if range.endIndex < inputData.count{
+                var sortableRange = inputData[index..<randomRange + index]
+                sortableRange.sort { $0.b < $1.g }
+                print(range)
+                finishedSorting.replaceSubrange(range, with: sortableRange)
+            }
+            
+        }
+        lastAlpha = pixel.a //THIS LINE
+        index += 1
+    }
+    return finishedSorting
+}
+public func sortByGreenChanges(_ inputData: [PixelData]) -> [PixelData]{
+    //var sortableRange = [PixelData]()
+    var finishedSorting = inputData
+    var lastAlpha = UInt8(0)
+    let maxDifference = UInt8(100)
+    var index = 0
+    let randomRange = 300
+    for pixel in inputData {
+        let op1 = pixel.g
+        let op2 = lastAlpha
+        let difference = Int(op1) - Int(op2)
+        let range = index..<index + 300
+        
+        if difference > Int(maxDifference) {
+            if range.endIndex < inputData.count{
+                var sortableRange = inputData[index..<randomRange + index]
+                sortableRange.sort { $0.g < $1.r }
                 print(range)
                 finishedSorting.replaceSubrange(range, with: sortableRange)
             }
@@ -322,8 +257,9 @@ public func rgbaSort(_ input: [PixelData]) -> [PixelData]{
         a.append(pixel.a)
     }
     var counter = 0
-    var u0 = UInt8(0)
+    var u0 = UInt8(255)
     for pixel in sorted{
+        sorted[counter].a = UInt8(0)
         if counter % 11 == 0 && counter + 11 < sorted.count {
             sorted[counter].r = r[counter]
             sorted[counter].g = u0
@@ -445,7 +381,7 @@ public func coolLines(_ input: [PixelData]) -> [PixelData]{
     var u0 = UInt8(0)
     for pixel in sorted{
         var index = sorted[counter]
-        index.a = UInt8(255)
+        index.a = UInt8(0)
         if counter % 5 == 0 && counter + 11 < sorted.count {
             sorted[counter].r = r[counter]
             sorted[counter].g = u0
@@ -487,6 +423,9 @@ public func coolLines(_ input: [PixelData]) -> [PixelData]{
         } else {
             counter += 1
         }
+    }
+    for i in sorted {
+        
     }
     return sorted
 }
@@ -675,4 +614,3 @@ public func coolReversedLines(_ input: [PixelData]) -> [PixelData]{
     }
     return sorted
 }
-

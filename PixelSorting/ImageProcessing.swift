@@ -52,8 +52,8 @@ import CoreGraphics
 }
 
 public func arSort(_ input: [PixelData]) -> [PixelData]{
-    var sorted = input
-    sorted.sort { $0.a < $1.r }
+//    var sorted = input
+    let sorted = input.sorted { $0.a < $1.r }
     return sorted
 }
 
@@ -124,12 +124,12 @@ public func sortByRedChanges(_ inputData: [PixelData]) -> [PixelData]{
         if difference > Int(maxDifference) {
             if range.endIndex < inputData.count{
                 var sortableRange = inputData[index..<randomRange + index]
-                sortableRange.sort { $0.b < $1.g }
+                sortableRange.sort { $0.g < $1.r }
                 finishedSorting.replaceSubrange(range, with: sortableRange)
             }
             
         }
-        lastAlpha = pixel.a //THIS LINE
+        lastAlpha = pixel.g //THIS LINE
         index += 1
     }
     return finishedSorting
@@ -193,7 +193,7 @@ public func duplicatePixels(_ toBeSorted: [PixelData]) -> [PixelData]{
     }
     return sorting
 }
-//good if assert is turned off
+//👍
 public func copyAndDivide(_ toBeSorted: [PixelData]) -> [PixelData]{
     var sorting = toBeSorted
     var counter = 0
@@ -201,12 +201,16 @@ public func copyAndDivide(_ toBeSorted: [PixelData]) -> [PixelData]{
         if counter % 4 == 0{
             let insert = counter
             var maths = pixels
-            let compare = toBeSorted[counter + 1]
-            maths.a = UInt8(Int(compare.a) / 2)
-            maths.r = UInt8(Int(compare.r) / 2)
-            maths.g = UInt8(Int(compare.g) / 2)
-            maths.b = UInt8(Int(compare.b) / 2)
-            sorting.insert(maths, at: insert)
+            let randomNum = arc4random_uniform(UInt32(255))
+            let divider = UInt8(randomNum)
+            maths.a = UInt8(Int(divider) / 2)
+            maths.r = UInt8(Int(divider) / 2)
+            maths.g = UInt8(Int(divider) / 2)
+            maths.b = UInt8(Int(divider) / 2)
+            sorting[counter] = maths
+//            sorting[counter + 1] = maths
+//            sorting[counter + 2] = maths
+//            sorting[counter + 3] = maths
             counter += 1
         } else {
             counter += 1
@@ -225,9 +229,9 @@ public func insertPixels(_ toBeSorted: [PixelData]) -> [PixelData]{
             let g = newPixel.g
             newPixel.r = g
             newPixel.g = r
-
-
-            sorting.insert(newPixel, at: counter + 50)
+            if counter + 50 < toBeSorted.count{
+            sorting[counter+50] = newPixel
+            }
             counter += 1
         } else {
             counter += 1
@@ -252,7 +256,9 @@ public func rgbaSort(_ input: [PixelData]) -> [PixelData]{
         a.append(pixel.a)
     }
     var counter = 0
-    var u0 = UInt8(255)
+    var random = arc4random_uniform(UInt32(255))
+    var randomPixel = UInt8(random)
+    var u0 = randomPixel
     for pixel in sorted{
         sorted[counter].a = UInt8(0)
         if counter % 11 == 0 && counter + 11 < sorted.count {
@@ -277,21 +283,21 @@ public func rgbaSort(_ input: [PixelData]) -> [PixelData]{
             sorted[counter + 6].g = g[counter + 6]
             sorted[counter + 6].r = u0
             sorted[counter + 6].b = u0
-            sorted[counter + 7].g = g[counter + 7]
-            sorted[counter + 7].r = u0
-            sorted[counter + 7].b = u0
-            sorted[counter + 8].b = b[counter + 8]
-            sorted[counter + 8].r = u0
-            sorted[counter + 8].g = u0
-            sorted[counter + 9].b = b[counter + 9]
-            sorted[counter + 9].r = u0
-            sorted[counter + 9].g = u0
-            sorted[counter + 10].b = b[counter + 10]
-            sorted[counter + 10].r = u0
-            sorted[counter + 10].g = u0
-            sorted[counter + 11].b = b[counter + 11]
-            sorted[counter + 11].r = u0
-            sorted[counter + 11].g = u0
+//            sorted[counter + 7].g = g[counter + 7]
+//            sorted[counter + 7].r = u0
+//            sorted[counter + 7].b = u0
+//            sorted[counter + 8].b = b[counter + 8]
+//            sorted[counter + 8].r = u0
+//            sorted[counter + 8].g = u0
+//            sorted[counter + 9].b = b[counter + 9]
+//            sorted[counter + 9].r = u0
+//            sorted[counter + 9].g = u0
+//            sorted[counter + 10].b = b[counter + 10]
+//            sorted[counter + 10].r = u0
+//            sorted[counter + 10].g = u0
+//            sorted[counter + 11].b = b[counter + 11]
+//            sorted[counter + 11].r = u0
+//            sorted[counter + 11].g = u0
             counter += 1
         } else {
             counter += 1
@@ -312,7 +318,9 @@ public func rgbaSortMaybe(_ input: [PixelData]) -> [PixelData]{
         a.append(pixel.a)
     }
     var counter = 0
-    var u0 = UInt8(0)
+    var random = arc4random_uniform(UInt32(255))
+    var randomPixel = UInt8(random)
+    var u0 = randomPixel
     for pixel in sorted{
         var index = sorted[counter]
         index.a = UInt8(255)
@@ -603,6 +611,82 @@ public func coolReversedLines(_ input: [PixelData]) -> [PixelData]{
             sorted[counter + 11].r = u0
             sorted[counter + 11].g = u0
             counter += 1
+        } else {
+            counter += 1
+        }
+    }
+    return sorted
+}
+
+//👍
+public func blocks(_ input: [PixelData]) -> [PixelData] {
+    var sorted = input
+    var counter = 0
+    for _ in sorted{
+        if counter % 20 == 0 {
+            sorted[counter + 1] = sorted[counter]
+            sorted[counter + 2] = sorted[counter]
+            sorted[counter + 3] = sorted[counter]
+            sorted[counter + 4] = sorted[counter]
+            sorted[counter + 5] = sorted[counter]
+            sorted[counter + 6] = sorted[counter]
+            sorted[counter + 7] = sorted[counter]
+            sorted[counter + 8] = sorted[counter]
+            sorted[counter + 9] = sorted[counter]
+            sorted[counter + 10] = sorted[counter]
+            sorted[counter + 11] = sorted[counter]
+            sorted[counter + 12] = sorted[counter]
+            sorted[counter + 13] = sorted[counter]
+            sorted[counter + 14] = sorted[counter]
+            sorted[counter + 15] = sorted[counter]
+            sorted[counter + 16] = sorted[counter]
+            sorted[counter + 17] = sorted[counter]
+            sorted[counter + 18] = sorted[counter]
+            counter += 1
+        } else {
+            counter += 1
+        }
+    }
+    return sorted
+}
+
+public func bigBlocks(_ input: [PixelData]) -> [PixelData] {
+    var sorted = input
+    var counter = 0
+    let random = Int(arc4random_uniform(UInt32(input.count / 8)))
+    for _ in sorted{
+        if counter % random == 0 {
+            if counter + 26 < input.count{
+            sorted[counter + 1] = sorted[counter]
+            sorted[counter + 2] = sorted[counter]
+            sorted[counter + 3] = sorted[counter]
+            sorted[counter + 4] = sorted[counter]
+            sorted[counter + 5] = sorted[counter]
+            sorted[counter + 6] = sorted[counter]
+            sorted[counter + 7] = sorted[counter]
+            sorted[counter + 8] = sorted[counter]
+            sorted[counter + 9] = sorted[counter]
+            sorted[counter + 10] = sorted[counter]
+            sorted[counter + 11] = sorted[counter]
+            sorted[counter + 12] = sorted[counter]
+            sorted[counter + 13] = sorted[counter]
+            sorted[counter + 14] = sorted[counter]
+            sorted[counter + 15] = sorted[counter]
+            sorted[counter + 16] = sorted[counter]
+            sorted[counter + 17] = sorted[counter]
+            sorted[counter + 18] = sorted[counter]
+            sorted[counter + 19] = sorted[counter]
+            sorted[counter + 20] = sorted[counter]
+            sorted[counter + 21] = sorted[counter]
+            sorted[counter + 22] = sorted[counter]
+            sorted[counter + 23] = sorted[counter]
+            sorted[counter + 24] = sorted[counter]
+            sorted[counter + 25] = sorted[counter]
+            sorted[counter + 26] = sorted[counter]
+            sorted[counter + 27] = sorted[counter]
+                counter += 1
+
+            }
         } else {
             counter += 1
         }

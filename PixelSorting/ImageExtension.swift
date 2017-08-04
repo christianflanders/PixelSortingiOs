@@ -60,7 +60,7 @@ extension UIImage {
         let pixelDataSize = MemoryLayout<PixelData>.size
         assert(pixelDataSize == 4)
         
-        //assert(pixels.count == Int(width * height))
+        assert(pixels.count == Int(width * height))
         
         let data: Data = pixels.withUnsafeBufferPointer {
             return Data(buffer: $0)

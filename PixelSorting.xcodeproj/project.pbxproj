@@ -89,7 +89,6 @@
 			children = (
 				6B55305A1F23E3CC001A7BA4 /* AppDelegate.swift */,
 				6B55305C1F23E3CC001A7BA4 /* MainScreenController.swift */,
-				6B0530A71F34F2F7008F8E58 /* ImageResizing.swift */,
 				6B5848811F28166F00F3A469 /* CollectionViewCell.swift */,
 				6B55305E1F23E3CC001A7BA4 /* Main.storyboard */,
 				6B5530631F23E3CC001A7BA4 /* LaunchScreen.storyboard */,
@@ -113,6 +112,7 @@
 		6BA7701A1F315627003F1812 /* Image Processing */ = {
 			isa = PBXGroup;
 			children = (
+				6B0530A71F34F2F7008F8E58 /* ImageResizing.swift */,
 				6BA770171F3147F0003F1812 /* ImageExtension.swift */,
 				6B55307A1F23EA56001A7BA4 /* ImageProcessing.swift */,
 			);

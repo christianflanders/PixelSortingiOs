@@ -16,7 +16,7 @@ class MainScreenController: UIViewController, UINavigationControllerDelegate, UI
     var pixelData = [PixelData]()
     var width = CGFloat()
     var height = CGFloat()
-    let effectSelections = ["Effect 1", "Effect 2", "Effect 3", "Effect 4", "Effect 5", "Effect 6", "Effect 7", "Effect 8", "Effect 9", "Effect 10", "Effect 11", "Effect 12", "Effect 13", "Effect 14"]
+    let effectSelections = ["Effect 1", "Effect 2", "Effect 3", "Effect 4", "Effect 5", "Effect 6", "Effect 7", "Effect 8", "Effect 9", "Effect 10", "Effect 11", "Blocks", "Effect 13", "Effect 14"]
     override func viewDidLoad() {
         super.viewDidLoad()
         imageLoaded(importedImage!)
@@ -82,14 +82,19 @@ class MainScreenController: UIViewController, UINavigationControllerDelegate, UI
     func selectAndDoEffect(_ label :String){
         switch label {
         case "Effect 1":
+            let start = Date()
             startActivity()
             DispatchQueue.global().async {
                 let effectedImage = self.importedImage?.effectTemplate(effect: arSort)
                 DispatchQueue.main.async {
                     self.ImageView.image = effectedImage
+                    print("Elapsed time: \(start.timeIntervalSinceNow) seconds")
+
                     self.stopActivity()
+
                 }
             }
+
         case "Effect 2":
             startActivity()
             DispatchQueue.global().async {
@@ -118,15 +123,15 @@ class MainScreenController: UIViewController, UINavigationControllerDelegate, UI
                 }
             }
             //slow
-        case "Effect 5":
-            startActivity()
-            DispatchQueue.global().async {
-                let effectedImage = self.importedImage?.effectTemplate(effect: duplicatePixels)
-                DispatchQueue.main.async {
-                    self.ImageView.image = effectedImage
-                    self.stopActivity()
-                }
-            }
+//        case "Effect 5":
+//            startActivity()
+//            DispatchQueue.global().async {
+//                let effectedImage = self.importedImage?.effectTemplate(effect: duplicatePixels)
+//                DispatchQueue.main.async {
+//                    self.ImageView.image = effectedImage
+//                    self.stopActivity()
+//                }
+//            }
             //slow
         case "Effect 6":
             startActivity()
@@ -167,7 +172,7 @@ class MainScreenController: UIViewController, UINavigationControllerDelegate, UI
         case "Effect 10":
             startActivity()
             DispatchQueue.global().async {
-                let effectedImage = self.importedImage?.effectTemplate(effect: sortByRedChanges)
+                let effectedImage = self.importedImage?.effectTemplate(effect: bigBlocks)
                 DispatchQueue.main.async {
                     self.ImageView.image = effectedImage
                     self.stopActivity()
@@ -182,7 +187,16 @@ class MainScreenController: UIViewController, UINavigationControllerDelegate, UI
                     self.stopActivity()
                 }
             }
-            
+            //TODO: Add Size Slider
+        case "Blocks":
+            startActivity()
+            DispatchQueue.global().async {
+                let effectedImage = self.importedImage?.effectTemplate(effect: blocks)
+                DispatchQueue.main.async {
+                    self.ImageView.image = effectedImage
+                    self.stopActivity()
+                }
+            }
         default:
             print("Well this shouldn't have happened")
         }

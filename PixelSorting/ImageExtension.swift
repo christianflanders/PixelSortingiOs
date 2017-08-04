@@ -92,12 +92,6 @@ extension UIImage {
         return UIImage(cgImage: cgimage)
     }
     
-    
-    
-    
-    
-    
-    
     public func effectTemplate(effect: ([PixelData]) -> [PixelData]) -> UIImage {
         var mutableImage = imageInitialProcessing(self)
         let processedImage = effect(mutableImage)

@@ -10,17 +10,18 @@ import UIKit
 
 class MainScreenController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource{
     
-    var image: UIImage?
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    var importedImage: UIImage?
     var originalImage: UIImage?
     var pixelData = [PixelData]()
     var width = CGFloat()
     var height = CGFloat()
-    let activityIndicator = UIActivityIndicatorView()
-    let effectsArray = ["Effect 1", "Effect 2", "Effect 3", "Effect 4", "Effect 5", "Effect 6", "Effect 7", "Effect 8", "Effect 9", "Effect 10", "Effect 11", "Effect 12", "Effect 13", "Effect 14"]
+    let effectSelections = ["Effect 1", "Effect 2", "Effect 3", "Effect 4", "Effect 5", "Effect 6", "Effect 7", "Effect 8", "Effect 9", "Effect 10", "Effect 11", "Effect 12", "Effect 13", "Effect 14"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageLoaded(image!)
-        originalImage = image
+        imageLoaded(importedImage!)
+        originalImage = importedImage
+        stopActivity()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,20 +32,20 @@ class MainScreenController: UIViewController, UINavigationControllerDelegate, UI
     @IBOutlet weak var Sort1Button: UIButton!
     @IBOutlet weak var Sort2Button: UIButton!
     @IBOutlet weak var Sort3Button: UIButton!
-    @IBOutlet weak var ActivityIndicator: UIActivityIndicatorView!
-    
-    
     @IBOutlet weak var ProgressView: UIProgressView!
     
     func imageLoaded(_ input : UIImage?) {
+                print("original image width is", input?.size.width)
+                print("original image height is", input?.size.height)
                 if let imageLoaded = input {
-                    ImageView.image = imageLoaded
-                    width = imageLoaded.size.width
-                    height = imageLoaded.size.height
-                    print(width)
-                    print(height)
-                    ImageView.image = imageLoaded
-        
+                    let resized = checkSizeAndResizeImage(input!)
+                    ImageView.image = resized
+                    width = resized.size.width
+                    height = resized.size.height
+                    print("resized width is", width)
+                    print("resized height is ", height)
+                    ImageView.image = resized
+                    
                 } else {
                     print("error!")
                 }
@@ -64,66 +65,160 @@ class MainScreenController: UIViewController, UINavigationControllerDelegate, UI
 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return effectsArray.count
+        return effectSelections.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
-        cell.label.text = effectsArray[indexPath.row]
+        cell.label.text = effectSelections[indexPath.row]
         return cell
         
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectAndDoEffect(effectsArray[indexPath.row])
+        selectAndDoEffect(effectSelections[indexPath.row])
         
     }
     
-
     func selectAndDoEffect(_ label :String){
         switch label {
         case "Effect 1":
-            let effectedImage = image?.effectTemplate(effect: arSort)
-            ImageView.image = effectedImage
+            startActivity()
+            DispatchQueue.global().async {
+                let effectedImage = self.importedImage?.effectTemplate(effect: arSort)
+                DispatchQueue.main.async {
+                    self.ImageView.image = effectedImage
+                    self.stopActivity()
+                }
+            }
         case "Effect 2":
-            let effectedImage = image?.effectTemplate(effect: gbSort)
-            ImageView.image = effectedImage
+            startActivity()
+            DispatchQueue.global().async {
+                let effectedImage = self.importedImage?.effectTemplate(effect: gbSort)
+                DispatchQueue.main.async {
+                    self.ImageView.image = effectedImage
+                    self.stopActivity()
+                }
+            }
         case "Effect 3":
-            let effectedImage = image?.effectTemplate(effect: randomSort)
-            ImageView.image = effectedImage
+            startActivity()
+            DispatchQueue.global().async {
+                let effectedImage = self.importedImage?.effectTemplate(effect: randomSort)
+                DispatchQueue.main.async {
+                    self.ImageView.image = effectedImage
+                    self.stopActivity()
+                }
+            }
         case "Effect 4":
-            let effectedImage = image?.effectTemplate(effect: sortByAlphaChanges)
-            ImageView.image = effectedImage
+            startActivity()
+            DispatchQueue.global().async {
+                let effectedImage = self.importedImage?.effectTemplate(effect: sortByAlphaChanges)
+                DispatchQueue.main.async {
+                    self.ImageView.image = effectedImage
+                    self.stopActivity()
+                }
+            }
+            //slow
         case "Effect 5":
-            let effectedImage = image?.effectTemplate(effect: duplicatePixels)
-            ImageView.image = effectedImage
+            startActivity()
+            DispatchQueue.global().async {
+                let effectedImage = self.importedImage?.effectTemplate(effect: duplicatePixels)
+                DispatchQueue.main.async {
+                    self.ImageView.image = effectedImage
+                    self.stopActivity()
+                }
+            }
+            //slow
         case "Effect 6":
-            let effectedImage = image?.effectTemplate(effect: copyAndDivide)
-            ImageView.image = effectedImage
+            startActivity()
+            DispatchQueue.global().async {
+                let effectedImage = self.importedImage?.effectTemplate(effect: copyAndDivide)
+                DispatchQueue.main.async {
+                    self.ImageView.image = effectedImage
+                    self.stopActivity()
+                }
+            }
         case "Effect 7":
-            let effectedImage = image?.effectTemplate(effect: insertPixels)
-            ImageView.image = effectedImage
+            startActivity()
+            DispatchQueue.global().async {
+                let effectedImage = self.importedImage?.effectTemplate(effect: insertPixels)
+                DispatchQueue.main.async {
+                    self.ImageView.image = effectedImage
+                    self.stopActivity()
+                }
+            }
         case "Effect 8":
-            let effectedImage = image?.effectTemplate(effect: rgbaSort)
-            ImageView.image = effectedImage
+            startActivity()
+            DispatchQueue.global().async {
+                let effectedImage = self.importedImage?.effectTemplate(effect: rgbaSort)
+                DispatchQueue.main.async {
+                    self.ImageView.image = effectedImage
+                    self.stopActivity()
+                }
+            }
         case "Effect 9":
-            let effectedImage = image?.effectTemplate(effect: rgbaSortMaybe)
-            ImageView.image = effectedImage
+            startActivity()
+            DispatchQueue.global().async {
+                let effectedImage = self.importedImage?.effectTemplate(effect: rgbaSortMaybe)
+                DispatchQueue.main.async {
+                    self.ImageView.image = effectedImage
+                    self.stopActivity()
+                }
+            }
         case "Effect 10":
-            let effectedImage = image?.effectTemplate(effect: sortByRedChanges)
-            ImageView.image = effectedImage
+            startActivity()
+            DispatchQueue.global().async {
+                let effectedImage = self.importedImage?.effectTemplate(effect: sortByRedChanges)
+                DispatchQueue.main.async {
+                    self.ImageView.image = effectedImage
+                    self.stopActivity()
+                }
+            }
         case "Effect 11":
-            let effectedImage = image?.effectTemplate(effect: sortByGreenChanges)
-            ImageView.image = effectedImage
-        
+            startActivity()
+            DispatchQueue.global().async {
+                let effectedImage = self.importedImage?.effectTemplate(effect: sortByGreenChanges)
+                DispatchQueue.main.async {
+                    self.ImageView.image = effectedImage
+                    self.stopActivity()
+                }
+            }
+            
         default:
             print("Well this shouldn't have happened")
         }
-   }
+    }
 
 
     @IBAction func ResetEffects(_ sender: UIButton) {
         ImageView.image = originalImage
         imageLoaded(originalImage)
     }
+    func startActivity(){
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+    }
+    
+    func stopActivity(){
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
+    }
+    
+    func checkSizeAndResizeImage(_ input : UIImage) -> UIImage{
+        let verticalResizer: CGFloat = 1334
+        let horizontalResizer: CGFloat = 750
+        var resizedReturnImage: UIImage
+        let inputWidth = input.size.width
+        let inputHeight = input.size.height
+        //Vertical image
+        if inputHeight > inputWidth {
+            resizedReturnImage = input.resized(toWidth: verticalResizer)!
+        } else { //Horizontal Image
+            resizedReturnImage = input.resized(toWidth: horizontalResizer)!
+        }
+        return resizedReturnImage
+    }
+    
+    
+    
 }
 

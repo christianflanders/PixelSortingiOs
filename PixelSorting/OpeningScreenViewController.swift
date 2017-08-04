@@ -58,7 +58,7 @@ class OpeningScreenViewController: UIViewController, UIImagePickerControllerDele
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ImageFromLibrarySelected" {
             let destination = segue.destination as! MainScreenController
-            destination.image = chosenImage 
+            destination.importedImage = chosenImage 
             
         }
     }

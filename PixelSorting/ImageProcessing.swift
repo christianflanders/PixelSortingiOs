@@ -44,7 +44,6 @@ import CoreGraphics
                 returnArray.insert(input[counter + 8], at: random)
                 returnArray.insert(input[counter + 9], at: random)
                 counter += 1
-                print("working" , counter)
             }
         }
         counter += 1
@@ -70,7 +69,6 @@ public func randomSort(_ input: [PixelData]) -> [PixelData]{
     for i in input{
         let random = arc4random_uniform(UInt32((input.count)))
         let randomRange = 300
-        print(randomRange)
         if random % 500 == 0 {
             if index + randomRange < input.count{
             let range = index..<index + randomRange
@@ -101,7 +99,6 @@ public func sortByAlphaChanges(_ inputData: [PixelData]) -> [PixelData]{
             if range.endIndex < inputData.count{
                 var sortableRange = inputData[index..<randomRange + index]
                 sortableRange.sort { $0.b < $1.g }
-                print(range)
                 finishedSorting.replaceSubrange(range, with: sortableRange)
             }
             
@@ -128,7 +125,6 @@ public func sortByRedChanges(_ inputData: [PixelData]) -> [PixelData]{
             if range.endIndex < inputData.count{
                 var sortableRange = inputData[index..<randomRange + index]
                 sortableRange.sort { $0.b < $1.g }
-                print(range)
                 finishedSorting.replaceSubrange(range, with: sortableRange)
             }
             
@@ -155,7 +151,6 @@ public func sortByGreenChanges(_ inputData: [PixelData]) -> [PixelData]{
             if range.endIndex < inputData.count{
                 var sortableRange = inputData[index..<randomRange + index]
                 sortableRange.sort { $0.g < $1.r }
-                print(range)
                 finishedSorting.replaceSubrange(range, with: sortableRange)
             }
             
@@ -614,3 +609,6 @@ public func coolReversedLines(_ input: [PixelData]) -> [PixelData]{
     }
     return sorted
 }
+
+
+

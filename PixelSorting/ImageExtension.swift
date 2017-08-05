@@ -23,7 +23,8 @@ extension UIImage {
     
 
     public func imageInitialProcessing(_ image: UIImage) -> [PixelData] {
-        let myImageDataArray = image.pixelData()
+        let fixed = image.fixOrientation()
+        let myImageDataArray = fixed.pixelData()
         let arrayOfPixelData = convertToArray(myImageDataArray!)
         return arrayOfPixelData
         
@@ -32,14 +33,16 @@ extension UIImage {
         var index = 0
         var arrayOfPixelData = [PixelData]()
         for i in input{
-            if index % 3 == 0 {
+            if index % 4 == 0 {
                 var pixel = PixelData()
-                let r = i
-                let g = input[index + 1 ]
+                let r = input[index]
+                let g = input[index + 1]
                 let b = input[index + 2]
-                pixel.r = b
+                let a = input[index + 3]
+                pixel.r = a
                 pixel.g = r
                 pixel.b = g
+                pixel.a = b
                 arrayOfPixelData.append(pixel)
                 index += 1
             } else {
@@ -110,3 +113,23 @@ public struct PixelData {
     public var a: UInt8 = 0
     
 }
+public func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
+    return CGRect(x: x, y: y, width: width, height: height)
+}
+
+extension UIImage {
+    public func fixOrientation() -> UIImage {
+        if self.imageOrientation == UIImageOrientation.up {
+            return self
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+        self.draw(in: CGRectMake(0, 0, self.size.width, self.size.height))
+        let normalizedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return normalizedImage;
+    }
+}
+
+

@@ -32,16 +32,14 @@ extension UIImage {
         var index = 0
         var arrayOfPixelData = [PixelData]()
         for i in input{
-            if index % 4 == 0 {
+            if index % 3 == 0 {
                 var pixel = PixelData()
                 let r = i
-                let g = input[index + 1]
+                let g = input[index + 1 ]
                 let b = input[index + 2]
-                let a = input[index + 3]
-                pixel.r = a
+                pixel.r = b
                 pixel.g = r
                 pixel.b = g
-                pixel.a = b
                 arrayOfPixelData.append(pixel)
                 index += 1
             } else {

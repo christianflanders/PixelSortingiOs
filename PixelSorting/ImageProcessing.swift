@@ -22,9 +22,7 @@ import CoreGraphics
 //        index += 1
 //    }
 //}
-func returnSameImage(_ input: [PixelData]) -> [PixelData]{
-    return input
-}
+
 
 //works if assert is turned off
  func someEffect(_ input: [PixelData]) -> [PixelData]{

@@ -85,7 +85,7 @@ class MainScreenController: UIViewController, UINavigationControllerDelegate, UI
             let start = Date()
             startActivity()
             DispatchQueue.global().async {
-                let effectedImage = self.importedImage?.effectTemplate(effect: returnSameImage)
+                let effectedImage = self.importedImage?.effectTemplate(effect: arSort)
                 DispatchQueue.main.async {
                     self.ImageView.image = effectedImage
                     print("Elapsed time: \(start.timeIntervalSinceNow) seconds")

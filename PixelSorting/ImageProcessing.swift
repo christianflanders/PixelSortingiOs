@@ -624,6 +624,7 @@ public func blocks(_ input: [PixelData]) -> [PixelData] {
     var counter = 0
     for _ in sorted{
         if counter % 20 == 0 {
+            if counter + 19 < input.count{
             sorted[counter + 1] = sorted[counter]
             sorted[counter + 2] = sorted[counter]
             sorted[counter + 3] = sorted[counter]
@@ -642,7 +643,9 @@ public func blocks(_ input: [PixelData]) -> [PixelData] {
             sorted[counter + 16] = sorted[counter]
             sorted[counter + 17] = sorted[counter]
             sorted[counter + 18] = sorted[counter]
+            }
             counter += 1
+
         } else {
             counter += 1
         }

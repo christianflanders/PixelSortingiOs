@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XH6-6G-LtE">
-    <device id="retina3_5" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -25,7 +25,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iLi-yT-IKo">
@@ -34,10 +34,10 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fp9-2T-mK5">
-                                <rect key="frame" x="0.0" y="67" width="320" height="263"/>
+                                <rect key="frame" x="0.0" y="67" width="320" height="351"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ckk-C2-jAW">
-                                <rect key="frame" x="0.0" y="329" width="320" height="151"/>
+                                <rect key="frame" x="0.0" y="417" width="320" height="151"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="151" id="E03-09-LOD"/>
@@ -176,7 +176,7 @@
                         <viewControllerLayoutGuide type="bottom" id="umb-L9-0DJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gWm-1b-SBa">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1002647_10151929309547735_2065997943_n" translatesAutoresizingMaskIntoConstraints="NO" id="0zV-ix-79R">
@@ -184,39 +184,36 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R73-fk-2zF">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cd1-uY-MrH">
-                                <rect key="frame" x="36" y="95" width="248" height="310"/>
+                                <rect key="frame" x="36" y="95" width="248" height="398"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Blured Menu" translatesAutoresizingMaskIntoConstraints="NO" id="iNf-6Y-Lyh">
-                                        <rect key="frame" x="0.0" y="0.0" width="248" height="310"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="248" height="398"/>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hdK-iq-GRi">
-                                        <rect key="frame" x="20" y="20" width="208" height="270"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="hdK-iq-GRi">
+                                        <rect key="frame" x="20" y="20" width="208" height="358"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noun_1088589_cc" translatesAutoresizingMaskIntoConstraints="NO" id="DIf-O4-rrj">
-                                                <rect key="frame" x="0.0" y="0.0" width="208" height="67.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="208" height="167.5"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Glitcher  allows you to create algorithmic computer art from your images. " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZcE-DW-2BZ">
-                                                <rect key="frame" x="0.0" y="67.5" width="208" height="67.5"/>
-                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="22"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Get Started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MgH-Xf-gLz">
-                                                <rect key="frame" x="0.0" y="135" width="208" height="67.5"/>
+                                                <rect key="frame" x="0.0" y="167.5" width="208" height="54.5"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="27"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="KPx-e4-1SO">
-                                                <rect key="frame" x="0.0" y="202.5" width="208" height="67.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="KPx-e4-1SO">
+                                                <rect key="frame" x="0.0" y="222" width="208" height="136"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkp-cO-L32">
-                                                        <rect key="frame" x="0.0" y="0.0" width="208" height="27.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="208" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="ico-3i-JtF"/>
+                                                        </constraints>
                                                         <size key="titleShadowOffset" width="0.0" height="0.59999999999999998"/>
                                                         <state key="normal" title="Import From Library" backgroundImage="Import Button">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -227,7 +224,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRF-zX-xI0">
-                                                        <rect key="frame" x="0.0" y="40.5" width="208" height="27"/>
+                                                        <rect key="frame" x="0.0" y="86" width="208" height="50"/>
                                                         <size key="titleShadowOffset" width="0.0" height="0.59999999999999998"/>
                                                         <state key="normal" title="Use Camera" backgroundImage="Import Button">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -241,10 +238,12 @@
                                             </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="ZcE-DW-2BZ" firstAttribute="top" secondItem="DIf-O4-rrj" secondAttribute="bottom" id="O5M-g2-Erq"/>
-                                            <constraint firstItem="MgH-Xf-gLz" firstAttribute="top" secondItem="ZcE-DW-2BZ" secondAttribute="bottom" id="QBP-Cb-a3K"/>
-                                            <constraint firstItem="ZcE-DW-2BZ" firstAttribute="leading" secondItem="hdK-iq-GRi" secondAttribute="leading" id="UP5-CJ-USx"/>
-                                            <constraint firstAttribute="trailing" secondItem="ZcE-DW-2BZ" secondAttribute="trailing" id="i9H-RV-Whq"/>
+                                            <constraint firstItem="MgH-Xf-gLz" firstAttribute="top" secondItem="DIf-O4-rrj" secondAttribute="bottom" id="8a3-Dr-E3t"/>
+                                            <constraint firstAttribute="trailing" secondItem="DIf-O4-rrj" secondAttribute="trailing" id="9nj-kK-ZcF"/>
+                                            <constraint firstItem="MgH-Xf-gLz" firstAttribute="top" secondItem="DIf-O4-rrj" secondAttribute="bottom" id="Kok-Hh-tbn"/>
+                                            <constraint firstItem="KPx-e4-1SO" firstAttribute="top" secondItem="MgH-Xf-gLz" secondAttribute="bottom" id="eYV-Jz-ztI"/>
+                                            <constraint firstItem="DIf-O4-rrj" firstAttribute="leading" secondItem="hdK-iq-GRi" secondAttribute="leading" id="xsL-Fb-x1s"/>
+                                            <constraint firstItem="DIf-O4-rrj" firstAttribute="top" secondItem="hdK-iq-GRi" secondAttribute="top" id="yvd-BQ-znn"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>

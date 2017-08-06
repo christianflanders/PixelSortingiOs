@@ -20,8 +20,21 @@ extension UIImage {
         
         return pixelData
     }
-    
 
+        public func fixOrientation() -> UIImage {
+            if self.imageOrientation == UIImageOrientation.up {
+                return self
+            }
+            
+            UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+            self.draw(in: CGRectMake(0, 0, self.size.width, self.size.height))
+            let normalizedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+            UIGraphicsEndImageContext()
+            
+            return normalizedImage;
+        }
+    
+//MARK: Functions
     public func imageInitialProcessing(_ image: UIImage) -> [PixelData] {
         let fixed = image.fixOrientation()
         let myImageDataArray = fixed.pixelData()
@@ -29,10 +42,11 @@ extension UIImage {
         return arrayOfPixelData
         
     }
+
     public func convertToArray(_ input : [UInt8]) -> [PixelData] {
         var index = 0
         var arrayOfPixelData = [PixelData]()
-        for i in input{
+        for _ in input{
             if index % 4 == 0 {
                 var pixel = PixelData()
                 let r = input[index]
@@ -51,8 +65,8 @@ extension UIImage {
             // a r b g
         }
         return arrayOfPixelData
-        
     }
+
     public func imageFromBitmap(pixels: [PixelData], width: Int, height: Int) -> UIImage? {
         assert(width > 0)
         
@@ -94,8 +108,19 @@ extension UIImage {
     }
     
     public func effectTemplate(effect: ([PixelData]) -> [PixelData]) -> UIImage {
-        var mutableImage = imageInitialProcessing(self)
+        let mutableImage = imageInitialProcessing(self)
         let processedImage = effect(mutableImage)
+        if let returnImage = imageFromBitmap(pixels: processedImage, width: Int(self.size.width), height: Int(self.size.height)) {
+            return returnImage
+        } else {
+            print("this shouldnt happen")
+            return self
+        }
+        
+    }
+    public func effectTemplateIncludingWidth(effect: ([PixelData],CGFloat) -> [PixelData]) -> UIImage {
+        let mutableImage = imageInitialProcessing(self)
+        let processedImage = effect(mutableImage, self.size.width)
         if let returnImage = imageFromBitmap(pixels: processedImage, width: Int(self.size.width), height: Int(self.size.height)) {
             return returnImage
         } else {
@@ -117,19 +142,21 @@ public func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: C
     return CGRect(x: x, y: y, width: width, height: height)
 }
 
-extension UIImage {
-    public func fixOrientation() -> UIImage {
-        if self.imageOrientation == UIImageOrientation.up {
-            return self
-        }
-        
-        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
-        self.draw(in: CGRectMake(0, 0, self.size.width, self.size.height))
-        let normalizedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        
-        return normalizedImage;
+
+
+public func checkSizeAndResizeImage(_ input : UIImage) -> UIImage{
+    let verticalResizer: CGFloat = 1334
+    let horizontalResizer: CGFloat = 750
+    var resizedReturnImage: UIImage
+    let inputWidth = input.size.width
+    let inputHeight = input.size.height
+    //Vertical image
+    if inputHeight > inputWidth {
+        resizedReturnImage = input.resized(toWidth: verticalResizer)!
+    } else { //Horizontal Image
+        resizedReturnImage = input.resized(toWidth: horizontalResizer)!
     }
+    return resizedReturnImage
 }
 
 

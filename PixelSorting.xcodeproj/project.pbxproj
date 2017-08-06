@@ -13,7 +13,7 @@
 		6B5530601F23E3CC001A7BA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B55305E1F23E3CC001A7BA4 /* Main.storyboard */; };
 		6B5530621F23E3CC001A7BA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B5530611F23E3CC001A7BA4 /* Assets.xcassets */; };
 		6B5530651F23E3CC001A7BA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B5530631F23E3CC001A7BA4 /* LaunchScreen.storyboard */; };
-		6B55307B1F23EA56001A7BA4 /* ImageProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B55307A1F23EA56001A7BA4 /* ImageProcessing.swift */; };
+		6B55307B1F23EA56001A7BA4 /* ImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B55307A1F23EA56001A7BA4 /* ImageEffects.swift */; };
 		6B5848821F28166F00F3A469 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5848811F28166F00F3A469 /* CollectionViewCell.swift */; };
 		6B79C40A1F296ADC0069ABC1 /* OpeningScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79C4091F296ADC0069ABC1 /* OpeningScreenViewController.swift */; };
 		6B8764D71F32CF1A00009F16 /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8764D61F32CF1A00009F16 /* UITests.swift */; };
@@ -41,7 +41,7 @@
 		6B5530661F23E3CC001A7BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B55306B1F23E3CC001A7BA4 /* PixelSortingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixelSortingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B5530711F23E3CC001A7BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6B55307A1F23EA56001A7BA4 /* ImageProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProcessing.swift; sourceTree = "<group>"; };
+		6B55307A1F23EA56001A7BA4 /* ImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEffects.swift; sourceTree = "<group>"; };
 		6B5848811F28166F00F3A469 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		6B79C4091F296ADC0069ABC1 /* OpeningScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpeningScreenViewController.swift; sourceTree = "<group>"; };
 		6B8764D61F32CF1A00009F16 /* UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITests.swift; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 			children = (
 				6B0530A71F34F2F7008F8E58 /* ImageResizing.swift */,
 				6BA770171F3147F0003F1812 /* ImageExtension.swift */,
-				6B55307A1F23EA56001A7BA4 /* ImageProcessing.swift */,
+				6B55307A1F23EA56001A7BA4 /* ImageEffects.swift */,
 			);
 			name = "Image Processing";
 			sourceTree = "<group>";
@@ -229,7 +229,7 @@
 				6B55305B1F23E3CC001A7BA4 /* AppDelegate.swift in Sources */,
 				6B5848821F28166F00F3A469 /* CollectionViewCell.swift in Sources */,
 				6B0530A81F34F2F7008F8E58 /* ImageResizing.swift in Sources */,
-				6B55307B1F23EA56001A7BA4 /* ImageProcessing.swift in Sources */,
+				6B55307B1F23EA56001A7BA4 /* ImageEffects.swift in Sources */,
 				6B79C40A1F296ADC0069ABC1 /* OpeningScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

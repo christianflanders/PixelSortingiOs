@@ -23,31 +23,26 @@
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "Spotlight Logo.png",
+      "filename" : "80 - Spotlight.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "Spotlight Logo@2x.png",
+      "filename" : "120 - iPhone-1.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "iPhone Logo.png",
+      "filename" : "120 - iPhone.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "iPhone 6 Plus Logo .png",
+      "filename" : "180 - iPhone 6 Plus.png",
       "scale" : "3x"
-    },
-    {
-      "idiom" : "ios-marketing",
-      "size" : "1024x1024",
-      "scale" : "1x"
     }
   ],
   "info" : {

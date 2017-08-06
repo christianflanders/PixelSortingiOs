@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XH6-6G-LtE">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -25,7 +25,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iLi-yT-IKo">
@@ -34,10 +34,10 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fp9-2T-mK5">
-                                <rect key="frame" x="0.0" y="67" width="414" height="519"/>
+                                <rect key="frame" x="0.0" y="67" width="320" height="263"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ckk-C2-jAW">
-                                <rect key="frame" x="0.0" y="585" width="414" height="151"/>
+                                <rect key="frame" x="0.0" y="329" width="320" height="151"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="151" id="E03-09-LOD"/>
@@ -49,12 +49,12 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <imageView key="backgroundView" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Main Box" id="q3p-KV-iIh">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="151"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="151"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="wqA-C8-4So" customClass="CollectionViewCell" customModule="PixelSorting" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="26.666666666666668" width="112" height="98"/>
+                                        <rect key="frame" x="0.0" y="26.5" width="112" height="98"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="112" height="98"/>
@@ -85,7 +85,7 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K1s-Iu-Vwd">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PfW-NN-OKl">
                                         <rect key="frame" x="300" y="19" width="106" height="30"/>
@@ -176,75 +176,100 @@
                         <viewControllerLayoutGuide type="bottom" id="umb-L9-0DJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gWm-1b-SBa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1002647_10151929309547735_2065997943_n" translatesAutoresizingMaskIntoConstraints="NO" id="0zV-ix-79R">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view alpha="0.55000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R73-fk-2zF">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R73-fk-2zF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Blured Menu" translatesAutoresizingMaskIntoConstraints="NO" id="iNf-6Y-Lyh">
-                                <rect key="frame" x="46" y="99" width="322" height="538"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cd1-uY-MrH">
+                                <rect key="frame" x="36" y="95" width="248" height="310"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Blured Menu" translatesAutoresizingMaskIntoConstraints="NO" id="iNf-6Y-Lyh">
+                                        <rect key="frame" x="0.0" y="0.0" width="248" height="310"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hdK-iq-GRi">
+                                        <rect key="frame" x="20" y="20" width="208" height="270"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noun_1088589_cc" translatesAutoresizingMaskIntoConstraints="NO" id="DIf-O4-rrj">
+                                                <rect key="frame" x="0.0" y="0.0" width="208" height="67.5"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Glitcher  allows you to create algorithmic computer art from your images. " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZcE-DW-2BZ">
+                                                <rect key="frame" x="0.0" y="67.5" width="208" height="67.5"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="22"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Get Started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MgH-Xf-gLz">
+                                                <rect key="frame" x="0.0" y="135" width="208" height="67.5"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="27"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="KPx-e4-1SO">
+                                                <rect key="frame" x="0.0" y="202.5" width="208" height="67.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkp-cO-L32">
+                                                        <rect key="frame" x="0.0" y="0.0" width="208" height="27.5"/>
+                                                        <size key="titleShadowOffset" width="0.0" height="0.59999999999999998"/>
+                                                        <state key="normal" title="Import From Library" backgroundImage="Import Button">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="SelectFromLibrary:" destination="XH6-6G-LtE" eventType="touchUpInside" id="bqA-1b-qDI"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRF-zX-xI0">
+                                                        <rect key="frame" x="0.0" y="40.5" width="208" height="27"/>
+                                                        <size key="titleShadowOffset" width="0.0" height="0.59999999999999998"/>
+                                                        <state key="normal" title="Use Camera" backgroundImage="Import Button">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="takePicture:" destination="XH6-6G-LtE" eventType="touchUpInside" id="OYI-el-VRN"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ZcE-DW-2BZ" firstAttribute="top" secondItem="DIf-O4-rrj" secondAttribute="bottom" id="O5M-g2-Erq"/>
+                                            <constraint firstItem="MgH-Xf-gLz" firstAttribute="top" secondItem="ZcE-DW-2BZ" secondAttribute="bottom" id="QBP-Cb-a3K"/>
+                                            <constraint firstItem="ZcE-DW-2BZ" firstAttribute="leading" secondItem="hdK-iq-GRi" secondAttribute="leading" id="UP5-CJ-USx"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZcE-DW-2BZ" secondAttribute="trailing" id="i9H-RV-Whq"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="322" id="8IN-K2-xjG"/>
-                                    <constraint firstAttribute="height" constant="538" id="nJu-MT-SyK"/>
+                                    <constraint firstAttribute="trailing" secondItem="iNf-6Y-Lyh" secondAttribute="trailing" id="4PR-Nc-h9l"/>
+                                    <constraint firstAttribute="bottom" secondItem="hdK-iq-GRi" secondAttribute="bottom" constant="20" id="FZi-kG-qVz"/>
+                                    <constraint firstItem="iNf-6Y-Lyh" firstAttribute="leading" secondItem="Cd1-uY-MrH" secondAttribute="leading" id="GKu-0A-VJS"/>
+                                    <constraint firstAttribute="bottom" secondItem="iNf-6Y-Lyh" secondAttribute="bottom" id="LMX-Bt-Sy4"/>
+                                    <constraint firstItem="hdK-iq-GRi" firstAttribute="leading" secondItem="Cd1-uY-MrH" secondAttribute="leading" constant="20" id="ZdB-iZ-hNK"/>
+                                    <constraint firstItem="hdK-iq-GRi" firstAttribute="top" secondItem="Cd1-uY-MrH" secondAttribute="top" constant="20" id="fhL-TX-lAO"/>
+                                    <constraint firstAttribute="trailing" secondItem="hdK-iq-GRi" secondAttribute="trailing" constant="20" id="kNk-q0-SSn"/>
+                                    <constraint firstItem="iNf-6Y-Lyh" firstAttribute="top" secondItem="Cd1-uY-MrH" secondAttribute="top" id="kQf-qy-Bgc"/>
                                 </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRF-zX-xI0">
-                                <rect key="frame" x="97" y="558" width="220" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <size key="titleShadowOffset" width="0.0" height="0.59999999999999998"/>
-                                <state key="normal" title="Use Camera" backgroundImage="Import Button">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="takePicture:" destination="XH6-6G-LtE" eventType="touchUpInside" id="OYI-el-VRN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkp-cO-L32">
-                                <rect key="frame" x="97" y="479" width="220" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <size key="titleShadowOffset" width="0.0" height="0.59999999999999998"/>
-                                <state key="normal" title="Import From Library" backgroundImage="Import Button">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="SelectFromLibrary:" destination="XH6-6G-LtE" eventType="touchUpInside" id="bqA-1b-qDI"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="noun_1088589_cc" translatesAutoresizingMaskIntoConstraints="NO" id="DIf-O4-rrj">
-                                <rect key="frame" x="87" y="123" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Get Started" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MgH-Xf-gLz">
-                                <rect key="frame" x="159" y="450" width="96" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Glitcher  allows you to create algorithmic computer art from your images. " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZcE-DW-2BZ">
-                                <rect key="frame" x="97" y="299" width="209" height="139"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="iNf-6Y-Lyh" secondAttribute="trailing" constant="26" id="8dF-DA-iJq"/>
-                            <constraint firstItem="iNf-6Y-Lyh" firstAttribute="top" secondItem="6jU-jh-ooM" secondAttribute="bottom" constant="79" id="9Vc-Q6-Jhc"/>
-                            <constraint firstItem="umb-L9-0DJ" firstAttribute="top" secondItem="iNf-6Y-Lyh" secondAttribute="bottom" constant="99" id="Dtg-Sw-Qci"/>
-                            <constraint firstItem="iNf-6Y-Lyh" firstAttribute="leading" secondItem="gWm-1b-SBa" secondAttribute="leadingMargin" constant="26" id="dMt-7f-m5w"/>
+                            <constraint firstItem="Cd1-uY-MrH" firstAttribute="top" secondItem="6jU-jh-ooM" secondAttribute="bottom" constant="75" id="6ke-kt-1dt"/>
+                            <constraint firstItem="R73-fk-2zF" firstAttribute="top" secondItem="gWm-1b-SBa" secondAttribute="top" id="A3X-FK-jdY"/>
+                            <constraint firstItem="umb-L9-0DJ" firstAttribute="top" secondItem="Cd1-uY-MrH" secondAttribute="bottom" constant="75" id="Mbu-5g-H0g"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cd1-uY-MrH" secondAttribute="trailing" constant="20" id="cah-Yx-Zop"/>
+                            <constraint firstItem="R73-fk-2zF" firstAttribute="leading" secondItem="gWm-1b-SBa" secondAttribute="leading" id="eS9-dZ-vWi"/>
+                            <constraint firstAttribute="trailing" secondItem="R73-fk-2zF" secondAttribute="trailing" id="fwm-mD-8WI"/>
+                            <constraint firstItem="umb-L9-0DJ" firstAttribute="top" secondItem="R73-fk-2zF" secondAttribute="bottom" id="gFa-pk-CMt"/>
+                            <constraint firstItem="Cd1-uY-MrH" firstAttribute="leading" secondItem="gWm-1b-SBa" secondAttribute="leadingMargin" constant="20" id="qCd-zw-Rf8"/>
                         </constraints>
                     </view>
                     <connections>

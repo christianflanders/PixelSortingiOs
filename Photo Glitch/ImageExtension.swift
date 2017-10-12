@@ -35,6 +35,7 @@ extension UIImage {
         }
     
 //MARK: Functions
+    
     public func imageInitialProcessing(_ image: UIImage) -> [PixelData] {
         let fixed = image.fixOrientation()
         let myImageDataArray = fixed.pixelData()
@@ -42,7 +43,7 @@ extension UIImage {
         return arrayOfPixelData
         
     }
-
+    //Takes the array of numbers we get back and sorts it into pixel data that we can manipulate easier
     public func convertToArray(_ input : [UInt8]) -> [PixelData] {
         var index = 0
         var arrayOfPixelData = [PixelData]()
@@ -66,7 +67,7 @@ extension UIImage {
         }
         return arrayOfPixelData
     }
-
+    //takes our bitmap and converts it back into a UIImage
     public func imageFromBitmap(pixels: [PixelData], width: Int, height: Int) -> UIImage? {
         assert(width > 0)
         
@@ -121,6 +122,7 @@ extension UIImage {
         }
         
     }
+    
     public func effectTemplateIncludingWidth(effect: ([PixelData],CGFloat) -> [PixelData]) -> UIImage {
         let mutableImage = imageInitialProcessing(self)
         let processedImage = effect(mutableImage, self.size.width)
@@ -133,6 +135,7 @@ extension UIImage {
         
     }
 }
+
 //END OF IMAGE EXTENSION
 public struct PixelData {
     public var r: UInt8 = 0
@@ -141,6 +144,7 @@ public struct PixelData {
     public var a: UInt8 = 0
     
 }
+
 public func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
     return CGRect(x: x, y: y, width: width, height: height)
 }

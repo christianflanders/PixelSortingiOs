@@ -8,21 +8,22 @@ public func someEffect(_ input: [PixelData]) -> [PixelData]{
             let random = Int(arc4random_uniform(UInt32((100))))
             print(random)
             if random + i < input.count {
-            for j in i..<random + i{
-                returnArray[j] = input[random]
+                for j in i..<random + i{
+                    returnArray[j] = input[random]
                 }
+            }
         }
-        }
-        }
-    return returnArray
     }
+    return returnArray
+}
 
 
 public func arSort(_ input: [PixelData]) -> [PixelData]{
-//    var sorted = input
+    //    var sorted = input
     let sorted = input.sorted { $0.b < $1.r }
     return sorted
 }
+
 //gbSort
 public func xtal(_ input: [PixelData]) -> [PixelData]{
     var sorted = input
@@ -34,19 +35,20 @@ public func xtal(_ input: [PixelData]) -> [PixelData]{
 public func blueCalx(_ input: [PixelData]) -> [PixelData]{
     var finishedEverything = input
     for i in 0..<input.count{
-//        let random = arc4random_uniform(UInt32((input.count)))
+        //        let random = arc4random_uniform(UInt32((input.count)))
         if i % 1000 == 0 {
             let randomRange = Int(arc4random_uniform(UInt32((800))))
             if i + randomRange < input.count{
-            let range = i..<i + randomRange
-            var sortableRange = input[range]
-            sortableRange.sort{ $0.g < $1.b}
-            finishedEverything[range] = sortableRange
-        }
+                let range = i..<i + randomRange
+                var sortableRange = input[range]
+                sortableRange.sort{ $0.g < $1.b}
+                finishedEverything[range] = sortableRange
+            }
         }
     }
     return finishedEverything
 }
+
 //sortbyalphachanges
 public func nanou2(_ inputData: [PixelData]) -> [PixelData]{
     var returnArray = inputData
@@ -79,9 +81,9 @@ public func sortByGreenChanges(_ inputData: [PixelData]) -> [PixelData]{
         let range = index..<index + randomRange
         
         if difference > Int(maxDifference) && range.endIndex < inputData.count {
-                var sortableRange = inputData[index..<randomRange + index]
-                sortableRange.sort { $0.g < $1.b }
-                finishedSorting.replaceSubrange(range, with: sortableRange)
+            var sortableRange = inputData[index..<randomRange + index]
+            sortableRange.sort { $0.g < $1.b }
+            finishedSorting.replaceSubrange(range, with: sortableRange)
         }
         lastAlpha = pixel.g //THIS LINE
         print(lastAlpha)
@@ -103,10 +105,10 @@ public func copyAndDivide(_ toBeSorted: [PixelData]) -> [PixelData]{
             maths.g = UInt8(Int(divider) / 2)
             maths.b = UInt8(Int(divider) / 2)
             sorting[i] = maths
+        }
     }
-}
     return sorting
-
+    
 }
 
 public func insertPixels(_ toBeSorted: [PixelData]) -> [PixelData]{
@@ -118,13 +120,13 @@ public func insertPixels(_ toBeSorted: [PixelData]) -> [PixelData]{
             let randomNumR = UInt8(arc4random_uniform(UInt32(255)))
             let randomNumG = UInt8(arc4random_uniform(UInt32(255)))
             let randomNumB = UInt8(arc4random_uniform(UInt32(255)))
-
+            
             var newPixel =  i
             newPixel.r = randomNumR
             newPixel.g = randomNumG
             newPixel.b = randomNumB
             if counter + randomNum < toBeSorted.count{
-            sorting[counter+randomNum] = newPixel
+                sorting[counter+randomNum] = newPixel
             }
             counter += 1
         } else {
@@ -254,27 +256,27 @@ public func blocks(_ input: [PixelData]) -> [PixelData] {
     for _ in sorted{
         if counter % 20 == 0 {
             if counter + 19 < input.count{
-            sorted[counter + 1] = sorted[counter]
-            sorted[counter + 2] = sorted[counter]
-            sorted[counter + 3] = sorted[counter]
-            sorted[counter + 4] = sorted[counter]
-            sorted[counter + 5] = sorted[counter]
-            sorted[counter + 6] = sorted[counter]
-            sorted[counter + 7] = sorted[counter]
-            sorted[counter + 8] = sorted[counter]
-            sorted[counter + 9] = sorted[counter]
-            sorted[counter + 10] = sorted[counter]
-            sorted[counter + 11] = sorted[counter]
-            sorted[counter + 12] = sorted[counter]
-            sorted[counter + 13] = sorted[counter]
-            sorted[counter + 14] = sorted[counter]
-            sorted[counter + 15] = sorted[counter]
-            sorted[counter + 16] = sorted[counter]
-            sorted[counter + 17] = sorted[counter]
-            sorted[counter + 18] = sorted[counter]
+                sorted[counter + 1] = sorted[counter]
+                sorted[counter + 2] = sorted[counter]
+                sorted[counter + 3] = sorted[counter]
+                sorted[counter + 4] = sorted[counter]
+                sorted[counter + 5] = sorted[counter]
+                sorted[counter + 6] = sorted[counter]
+                sorted[counter + 7] = sorted[counter]
+                sorted[counter + 8] = sorted[counter]
+                sorted[counter + 9] = sorted[counter]
+                sorted[counter + 10] = sorted[counter]
+                sorted[counter + 11] = sorted[counter]
+                sorted[counter + 12] = sorted[counter]
+                sorted[counter + 13] = sorted[counter]
+                sorted[counter + 14] = sorted[counter]
+                sorted[counter + 15] = sorted[counter]
+                sorted[counter + 16] = sorted[counter]
+                sorted[counter + 17] = sorted[counter]
+                sorted[counter + 18] = sorted[counter]
             }
             counter += 1
-
+            
         } else {
             counter += 1
         }
@@ -309,7 +311,7 @@ public func bigBlocks(_ input: [PixelData]) -> [PixelData] {
                     sorted.append(input[j + random])
                     sorted.remove(at: 0)
                 }
-
+                
             }
         }
     }

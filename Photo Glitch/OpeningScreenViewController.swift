@@ -13,23 +13,30 @@ class OpeningScreenViewController: UIViewController, UIImagePickerControllerDele
     //MARK: Constants
     fileprivate let picker = UIImagePickerController()
     fileprivate let camera = UIImagePickerController()
+    
     //MARK: Outlets
     @IBOutlet weak var cancel: UIButton!
     
     //MARK: Weak vars
     
     //MARK: Public Variables
+    
     public var chosenImage = UIImage()
     public var doesContainPicture = false
     public var imageSentBack = UIImage()
+    
     //MARK: Private Variables
 
+    
+    
     //MARK: View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
         camera.delegate = self
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         if doesContainPicture {
             cancel.isHidden = false
@@ -37,6 +44,7 @@ class OpeningScreenViewController: UIViewController, UIImagePickerControllerDele
             cancel.isHidden = true
         }
     }
+    
     //MARK: IBActions
     @IBAction func SelectFromLibrary(_ sender: UIButton) {
         picker.allowsEditing = false
@@ -44,12 +52,14 @@ class OpeningScreenViewController: UIViewController, UIImagePickerControllerDele
         
         self.present(picker, animated: true, completion: nil)
     }
+    
     @IBAction func takePicture(_ sender: UIButton){
         camera.allowsEditing = false
         camera.sourceType = .camera
         self.present(camera, animated: true, completion: nil)
         
     }
+    
     //MARK: Instance Methods
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -57,10 +67,12 @@ class OpeningScreenViewController: UIViewController, UIImagePickerControllerDele
         dismiss(animated: true, completion: nil)
         performSegue(withIdentifier: "ImageFromLibrarySelected", sender: self)
     }
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         print("dismissed")
         dismiss(animated: true, completion: nil)
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ImageFromLibrarySelected" {
             let destination = segue.destination as! MainScreenController

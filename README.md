@@ -14,11 +14,11 @@ Planned Features:
 
 Examples:
 
-![alt text](https://imgur.com/88Dnb2h)
-![alt text](https://imgur.com/WHi6gZY)
-![alt text](https://imgur.com/tfLFHUh)
-![alt text](https://imgur.com/oOTR950)
-![alt text](https://imgur.com/zWvLLCtg)
-![alt text](https://imgur.com/nZyuIgH)
-![alt text](https://imgur.com/pQdteud)
-![alt text](https://imgur.com/EGnc1zh)
+![alt text](https://i.imgur.com/zWvLLCt.jpg)
+![alt text](https://i.imgur.com/nZyuIgH.jpg)
+![alt text](https://i.imgur.com/pQdteudg.jpg)
+![alt text](https://i.imgur.com/88Dnb2h.jpg)
+![alt text](https://i.imgur.com/EGnc1zh.jpg)
+![alt text](https://i.imgur.com/WHi6gZY.jpg)
+![alt text](https://i.imgur.com/tfLFHUh.jpg)
+![alt text](https://i.imgur.com/HRHQwVc.jpg)
